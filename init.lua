@@ -235,12 +235,7 @@ require('lazy').setup({
   'lukas-reineke/indent-blankline.nvim',
   'windwp/nvim-autopairs',
   'folke/todo-comments.nvim',
-  {
-    'windwp/nvim-ts-autotag',
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end,
-  },
+  'windwp/nvim-ts-autotag',
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   -- uncomment this if tabstops n stuff still don't work after setting them manually
   -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
