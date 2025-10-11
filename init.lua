@@ -235,18 +235,26 @@ require('lazy').setup({
   'lukas-reineke/indent-blankline.nvim',
   'windwp/nvim-autopairs',
   'folke/todo-comments.nvim',
-  'windwp/nvim-ts-autotag',
+  {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = false,
+      }
+    end,
+  },
+
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   -- uncomment this if tabstops n stuff still don't work after setting them manually
   -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
   --
   -- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
   --
-
   -- Alternatively, use `config = function() ... end` for full control over the configuration.
   -- If you prefer to call `setup` explicitly, use:
   --    {
@@ -547,6 +555,9 @@ require('lazy').setup({
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
           map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+
+          -- Open netrw or something
+          map('<leader>n', ':Ex<CR>', 'Opens [n]etrw')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
