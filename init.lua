@@ -235,13 +235,31 @@ require('lazy').setup({
   'lukas-reineke/indent-blankline.nvim',
   'windwp/nvim-autopairs',
   'folke/todo-comments.nvim',
+  
   {
     'windwp/nvim-ts-autotag',
     config = function()
-      require('nvim-ts-autotag').setup {
-        enable_close = true,
-        enable_rename = true,
-        enable_close_on_slash = false,
+      require("nvim-ts-autotag").setup({
+        opts = {
+          enable_close = true,
+          enable_rename = true,
+          enable_close_on_slash = false,
+        },
+      })
+    end,
+  },
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup {
+        toggler = {
+          line = '<C-/>',
+          block = '<C-/>',
+        },
+        opleader = {
+          line = '<C-/>',
+          block = '<C-/>',
+        },
       }
     end,
   },
@@ -1021,7 +1039,6 @@ require('lazy').setup({
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
-      autotag = { enable = true },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
